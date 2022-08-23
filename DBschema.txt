@@ -1,0 +1,14 @@
+
+
+Entity :
+		1. Users {userId, username, email, password, phone(can be null), status, UtcTimeOffset, imageId(foreign key "Files")}
+		2. Files {fileId file}
+		3. Workplaces {workplaceId, name, createdBy(foreign key "Users"), createdOn, workplaceImage(foreign key "Files")}
+		4. WorkplaceAccess {accessId, workplaceId(foreign key "Workplaces"), userId(foreign key "Users"), canAddorRemoveUser (1 or 0)}
+		5. Invitations {inviteId, createdBy(foreign key "Users"), dateOfInvite, invitation(Random String), workplaceId(foreign key "Workplaces")}
+		6. Channels {channelId, name, topic, descrption, createdBy(foreign key "Users"), workplaceId(foreign key "Workplaces") }
+		7. ChannelAccess {channelAccessId, userId (foreign key "Users"), channelId(foreign key "Channels")}
+		8. ChannelChats {channelChatId, from(foreign key "Users"), sentAt, chat} 
+		9. Messages {messageId, from(foreign key "Users"), To(foreign key "Users"), workplaceId(foreign key "Workplaces")}
+	   10. MessageChats {messageChatId, messageId(foreign key "Messages"), chat, sentAt} 
+		
